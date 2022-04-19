@@ -22,7 +22,7 @@ Launches the test runner in the interactive watch mode.
 
 ### `yarn build`
 
-generates an optimized version of your application for production. This standard output includes:
+generates an optimized application for production. This standard output includes:
 
 - HTML files for pages using getStaticProps or Automatic Static Optimization
 - CSS files for global styles or for individually scoped styles
@@ -33,4 +33,4 @@ generates an optimized version of your application for production. This standard
 
 This project hosted in [Vercel](https://vercel.com/) and automatically running build and deploy to Vercel everytime commit pushed to main.
 
-#### Check live here : https://shipper-rosy.vercel.app/
+#### Check live web here : https://shipper-rosy.vercel.app/
