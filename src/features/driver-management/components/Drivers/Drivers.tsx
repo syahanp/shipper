@@ -3,6 +3,7 @@ import { useGlobalState } from 'provider/GlobalProvider'
 import React from 'react'
 import styled from 'styled-components'
 import DriverCard from './DriverCard'
+import DriverCardLoading from './DriverCardLoading'
 
 /**
  * List of drivers
@@ -11,21 +12,21 @@ const Drivers = () => {
   const { isMobileScreen } = useGlobalState()
   const { drivers, isLoading } = useDriversState()
 
-  if (isLoading) return null
-
   return (
     <Container isMobile={isMobileScreen}>
       <div className="drivers__list">
-        {drivers.map((driver) => (
-          <DriverCard
-            key={driver.email}
-            avatar={driver.picture?.medium}
-            name={`${driver.name.first} ${driver.name.last}`}
-            phone={driver.phone}
-            email={driver.email}
-            birth_date={driver.dob.date}
-          />
-        ))}
+        {isLoading
+          ? [...Array(4)].map((_, i) => <DriverCardLoading key={i} />)
+          : drivers.map((driver) => (
+              <DriverCard
+                key={driver.email}
+                avatar={driver.picture?.medium}
+                name={`${driver.name.first} ${driver.name.last}`}
+                phone={driver.phone}
+                email={driver.email}
+                birth_date={driver.dob.date}
+              />
+            ))}
       </div>
     </Container>
   )

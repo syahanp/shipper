@@ -9,15 +9,25 @@ interface Props {
   title: string
   url: string
   isActive?: boolean
+  onClick: () => void
 }
 
-const SidebarItem: React.FC<Props> = ({ icon, title, url = '', isActive }) => {
+/**
+ * each menu item in sidebar
+ */
+const SidebarItem: React.FC<Props> = ({
+  icon,
+  title,
+  url = '',
+  isActive,
+  onClick,
+}) => {
   const { color } = useTheme()
   const Icon = icon
 
   return (
     <Link href={url} key={title} passHref>
-      <Item isActive={isActive} className="sidebar__item">
+      <Item isActive={isActive} className="sidebar__item" onClick={onClick}>
         <Icon size={20} color={isActive ? color.primary : color.black} />
         <Text color={isActive ? 'primary' : 'black'}>{title}</Text>
       </Item>

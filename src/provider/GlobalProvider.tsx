@@ -29,11 +29,17 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
 
   const screenWidth = useResponsiveScreen()
 
+  const isMobileScreen = screenWidth < 800
+
+  /**
+   * handle open/close sidebar only at mobile screen;
+   */
   const handleOpenSidebar = () => {
+    // dont do anything when screen at desktop state
+    if (!isMobileScreen) return
+
     setSidebarOpen((prevState) => !prevState)
   }
-
-  const isMobileScreen = screenWidth < 800
 
   const contextState = { screenWidth, isMobileScreen, isSidebarOpen }
 

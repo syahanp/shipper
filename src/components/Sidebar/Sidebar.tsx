@@ -50,6 +50,7 @@ const Sidebar = () => {
                 url={item.url}
                 icon={item.icon}
                 isActive={router.pathname === item.url}
+                onClick={handleOpenSidebar}
               />
             )
           })}

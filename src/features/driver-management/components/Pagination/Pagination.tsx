@@ -7,6 +7,9 @@ import React from 'react'
 import { ChevronLeft, ChevronRight } from 'react-feather'
 import styled from 'styled-components'
 
+/**
+ * Pagination where we can go to next or previous page
+ */
 const Pagination = () => {
   const { nextPage, prevPage } = useDriversFunction()
   const { hasPreviousPage, hasNextPage } = useDriversState()

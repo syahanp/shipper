@@ -13,7 +13,7 @@ const useResponsiveScreen = () => {
   useEffect(() => {
     updateDimensions()
 
-    window.addEventListener('resize', debounce(updateDimensions, 100))
+    window.addEventListener('resize', debounce(updateDimensions, 50))
 
     return () => window.removeEventListener('resize', updateDimensions)
   }, [width])

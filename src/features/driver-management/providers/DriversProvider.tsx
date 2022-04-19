@@ -1,10 +1,4 @@
-import React, {
-  createContext,
-  ReactNode,
-  useContext,
-  useEffect,
-  useState,
-} from 'react'
+import React, { createContext, ReactNode, useContext, useState } from 'react'
 import useDriversData from '../hooks/useDriversData'
 import { DriversState, DriversFunc } from './DriversProvider.type'
 
@@ -14,12 +8,21 @@ export const DriversContextFunction = createContext<DriversFunc | undefined>(
   undefined
 )
 
+/**
+ * Context provider specific for driver management
+ */
 export const DriversProvider = ({ children }: { children: ReactNode }) => {
   const [inputValue, setInputValue] = useState('')
 
+  /**
+   * populate drivers data in this hooks
+   */
   const { metadata, isLoading, nextPage, prevPage, hasPreviousPage, hasNextPage } =
     useDriversData(inputValue)
 
+  /**
+   * handle search onChange
+   */
   const handleInputValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     return setInputValue(e.target.value)
   }

@@ -5,6 +5,10 @@ import Sidebar from './Sidebar'
 import { useGlobalState } from 'provider/GlobalProvider'
 import { useMounted } from 'hooks'
 
+/**
+ * Set our app layout looks like a dashboard.
+ * here we specify Navbar, Sidebar, and content for every rendered page
+ */
 const AppLayout = ({ children }: { children: ReactNode }) => {
   const { isMobileScreen } = useGlobalState()
 
@@ -32,7 +36,7 @@ const Layout = styled.div<{ isMobile: boolean }>`
   background-color: ${(props) => props.theme.color.gray100};
 
   .content_layout {
-    height: 100%;
+    min-height: 90vh;
     width: 100%;
     display: ${(props) => (props.isMobile ? 'block' : 'grid')};
     grid-template-columns: 250px 1fr;
