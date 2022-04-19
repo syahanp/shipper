@@ -40,7 +40,7 @@ const useDriversData = (inputValue: string) => {
       }))
 
       setLoading(false)
-    }).catch(() => {console.log("errrorrrrr")})
+    }).catch(() => {})
   }, [])
 
   useEffect(() => {
